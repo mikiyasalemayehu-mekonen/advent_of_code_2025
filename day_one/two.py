@@ -1,8 +1,8 @@
 from math import inf
 
 def main():
-    password = 0
-    pos = 50
+    password = 0                 # total times we pointed at 0
+    pos = 50                     # current position (0-99)
 
     while True:
         try:
@@ -16,12 +16,11 @@ def main():
         steps = int(line[1:])
 
         if direction == 'R':
-
             crosses = (pos + steps - 1) // 100 - (pos - 1) // 100
             password += crosses
             pos = (pos + steps) % 100
 
-        else:
+        else:  # 'L'
             crosses = pos // 100 - (pos - steps) // 100
             password += crosses
             pos = (pos - steps) % 100
